@@ -75,8 +75,6 @@ public class PulseWidthModulation extends PwmBase {
         log.info("loop started");
 
         while (loopRunning) {
-            log.info("" + currentFrequency.get());
-            log.info("" + currentDutyCycle.get());
             if (currentFrequency.get() != 0) {
                 int period = (1000000 / currentFrequency.get());
                 int highTime = (int) (period *
