@@ -8,10 +8,9 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class InputReceiver {
 
-    @MessageMapping("/hello")
-    // @SendTo("/topic/greetings")
-    public String greeting(Hello hello) throws Exception {
+    @MessageMapping("/motor-controls")
+    public String greeting(MotorControls hello) throws Exception {
         log.info("Message received : {}", hello);
-        return "Hello" + hello.name();
+        return "Hello" + hello.toString();
     }
 }
