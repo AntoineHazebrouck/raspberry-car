@@ -1,16 +1,24 @@
 package antoine.raspberry_car.web.server;
 
+import antoine.raspberry_car.MotorController;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
 
 @Slf4j
+@RequiredArgsConstructor
 @Controller
 public class InputReceiver {
 
+    private final MotorController motor;
+
     @MessageMapping("/motor-controls")
-    public String greeting(MotorControls hello) throws Exception {
-        log.info("Message received : {}", hello);
-        return "Hello" + hello.toString();
+    public String greeting(MotorControls controls) throws Exception {
+        log.info("Message received : {}", controls);
+
+        motor.on(controls.power());
+
+        return "controls updated";
     }
 }
