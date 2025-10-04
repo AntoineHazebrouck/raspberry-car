@@ -1,4 +1,6 @@
-# Remote Raspberry pi car
+# raspberry-car
+
+This project is a web socket server that receives live instructions to control the wheels. See [the client cli program](https://github.com/AntoineHazebrouck/raspberry-car-client).
 
 ## Run remotely
 
