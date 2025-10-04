@@ -15,7 +15,7 @@ public class InputReceiver {
 
     @MessageMapping("/motor-controls")
     public String greeting(MotorControls controls) throws Exception {
-        motor.on(controls.power());
+        motor.on(controls.power(), controls.forward());
 
         return "controls updated";
     }
